@@ -1,0 +1,48 @@
+.accordion-item {
+  margin-bottom: 1rem;
+}
+.accordion-checkbox {
+  display: none;
+}
+.accordion-header {
+  display: block;
+  
+  cursor: pointer;
+  padding: 1rem ;
+  border-bottom:1px solid #eaeaea;
+}
+
+
+  .accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+    padding-right: 10px;
+  }
+  
+  .accordion-checkbox:checked + .accordion-header::after {
+    content: '-';
+  }
+
+.accordion-content {
+    display: flex;
+    flex-direction: column;
+  
+  
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.accordion-checkbox:checked ~ .accordion-content {
+  max-height: 500px; 
+}
+
+.acc-link {
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+}

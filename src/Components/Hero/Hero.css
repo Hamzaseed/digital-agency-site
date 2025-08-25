@@ -1,0 +1,272 @@
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  
+  background: linear-gradient(to bottom right,  #f8fafc, #ffffff, #dbeafe);
+
+
+
+}
+
+.background-elements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bg-circle {
+  position: absolute;
+  width: 384px;
+  height: 384px;
+  border-radius: 50%;
+  filter: blur(48px);
+}
+
+.indigo-circle {
+  top: 25%;
+  left: 25%;
+  background: rgba(199, 210, 254, 0.3);
+}
+
+.purple-circle {
+  bottom: 25%;
+  right: 25%;
+  background: rgba(233, 213, 255, 0.3);
+}
+
+.hero-container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 128px 16px 80px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #e0e7ff;
+  border-radius: 9999px;
+  font-weight: 500;
+  color:  #2a5298;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  line-height: 1.2;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.cursor {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 36rem;
+}
+
+.hero-buttons {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.btn-gradient {
+background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+}
+
+.btn-outline {
+  border: 2px solid linear-gradient(90deg, #1e3c72, #2a5298);;
+  color:1F2B44;
+  padding: 16px 32px;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: white;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 32px;
+}
+
+.hero-stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.divider {
+  width: 1px;
+  height: 48px;
+  background: #d1d5db;
+}
+
+.hero-right {
+  position: relative;
+}
+
+.stats-card {
+
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+  padding: 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  color: #4b5563;
+}
+
+.green-text {
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 16px;
+  height: 8px;
+  margin-top: 8px;
+}
+
+.progress-fill {
+  width: 80%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(to right, #4f46e5, #8b5cf6);
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.indigo-text {
+  color: #4f46e5;
+}
+
+.purple-text {
+  color: #8b5cf6;
+}
+
+.floating-card {
+  position: absolute;
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  z-index: 999;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.indigo-floating {
+  background: #4f46e5;
+  top: -16px;
+  left: -16px;
+}
+
+.purple-floating {
+  background: #8b5cf6;
+  bottom: -16px;
+  right: -16px;
+}
+
+.floating-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.floating-subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}

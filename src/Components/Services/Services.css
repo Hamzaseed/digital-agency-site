@@ -1,0 +1,270 @@
+/* Services.css */
+.services-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f3f4f6;  
+}
+
+.services-section .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.services-section .service-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #111827;
+}
+
+.services-section .service-title span {
+  color: #4f46e5;
+  margin-left: 0.5rem;
+}
+
+.services-section .service-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 650px;
+  margin: 0 auto 2rem;
+}
+
+.service-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+.btn-primary {
+  margin-right: 10px;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: black;
+}
+
+/* Stats Section */
+.stats {
+  background: #f3f4f6;
+  padding: 3rem 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+
+
+.stat-item {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* Services Grid */
+.services {
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.services-header p {
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0.5rem auto 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  gap: 2rem;
+}
+
+.service-card {
+/*   background: #f9fafb; */
+ border: 1pcx solid #e5e7eb;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem;
+  color: #111827;
+}
+
+.service-description {
+  margin: 0 1rem 1.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.service-details {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.service-details h4 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.service-details ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.service-details ul li {
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.service-details ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4f46e5;
+}
+
+.service-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-price {
+  font-weight: 700;
+  color: #111827;
+}
+
+
+
+
+@media (max-width: 738px) {
+  .services-section {
+    padding: 2rem 1rem;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  .services-section .service-title {
+    font-size: 2rem;
+  }
+
+  .services-section .service-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* ✅ Single column on mobile */
+    gap: 1.5rem;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* ✅ Ensure Firebase form stays responsive */
+  .services-section input,
+  .services-section textarea,
+  .services-section button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,57 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Lobster&family=Noto+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moon+Dance&display=swap');
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+ 
+}
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('/fonts/helvetica-now-text.woff2') format('woff2'),
+       url('/fonts/helvetica-now-text.woff') format('woff'),
+       url('/fonts/helvetica-now-text.ttf') format('truetype');
+  font-weight: 100 900; /* Supports all weights */
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Helvetica Now Text', Arial, sans-serif;
+  font-weight: 600;
+
+  
+
+}
+
+
+p,  a, li , button{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+
