@@ -44,29 +44,64 @@ const handleSubmit = async (e) => {
    
 
   useEffect(() => {
+    // LEFT
     gsap.fromTo(
       leftRef.current,
       { opacity: 0, x: -40 },
-      { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
+      {
+        opacity: 1,
+        x: 0,
+
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: leftRef.current,
+          start: "top 80%", // when top of element hits 80% of viewport
+          toggleActions: "play none none reverse"
+        }
+      }
     );
 
+    // RIGHT
     gsap.fromTo(
       rightRef.current,
       { opacity: 0, x: 40 },
-      { opacity: 1, x: 0, duration: 1, delay: 0.3, ease: "power3.out" }
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: rightRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      }
     );
 
+    // BENEFITS (staggered)
     benefitsRef.current.forEach((el, i) => {
       if (el) {
         gsap.fromTo(
           el,
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, delay: i * 0.15, ease: "power3.out" }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              toggleActions: "play none none reverse"
+            }
+          }
         );
       }
     });
   }, []);
-
   return (
     <section id="cta-section" className="cta-section">
       <div className="cta-container">

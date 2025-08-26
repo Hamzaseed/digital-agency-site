@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import './Services.css'
 import { Sparkle, Sparkles ,ArrowRight  } from 'lucide-react';
 
@@ -12,9 +12,44 @@ const Services = () => {
 
    const textRef = useRef(null);
 
+    const subtitleRef = useRef(null);
+     const sectionTitleRef = useRef(null);
+  useEffect(() => {
+   gsap.from(sectionTitleRef.current, {
+      scrollTrigger: {
+        trigger: sectionTitleRef.current,
+        start: "top 85%",
+      },
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "back.out(1.7)",
+    });
+  
+     gsap.fromTo(
+      subtitleRef.current,
+      
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.out",
+      }
+    );
+  
+  } , []);
+     
+
   useEffect(() => {
     gsap.from(textRef.current, {
-      y: -50,    
+
+         scrollTrigger: {
+        trigger: sectionTitleRef.current,
+        start: "top 85%",
+      },
+      y: -40,    
       repeat: 2,
       duration: 2,
    
@@ -130,7 +165,7 @@ const Services = () => {
             Grow Your Business with
             <span>Expert Marketing Solutions</span>
           </h1>
-          <p className="service-subtitle">
+          <p  ref={subtitleRef}  className="service-subtitle">
             We help businesses scale through strategic digital marketing, e-commerce solutions,
             and brand development. From Meta ads to complete rebranding, we've got you covered.
           </p>
@@ -157,7 +192,7 @@ const Services = () => {
       {/* Services Section */}
       <section className="services">
         <div className="services-header">
-          <h2>Our Services</h2>
+          <h2    ref={sectionTitleRef}    >      Our Services</h2>
           <p>Comprehensive marketing solutions designed to drive growth and maximize your ROI</p>
         </div>
 
@@ -187,7 +222,7 @@ const Services = () => {
                   <ul>
                     {service.benefits.map((benefit, idx) => (
                       <li key={idx}>
-                    {/*     <ArrowRight className="icon-sm" /> */} {benefit}
+                       {benefit}
                       </li>
                     ))}
                   </ul>

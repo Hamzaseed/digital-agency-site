@@ -78,7 +78,9 @@ const Navbar = () => {
  
 <span className='acc-span'>  <Settings className='setting-icon' size={20} color='#000000' strokeWidth={1} absoluteStrokeWidth />  
    <Accordian id="item-services" title="Services"> 
-      <NavLink  className="acc-link"     activeClassName="active"> Meta Ads</NavLink>
+      <NavLink 
+      
+      className="acc-link"     activeClassName="active"> Meta Ads</NavLink>
      <NavLink  className="acc-link" activeClassName="active">Shopify Store Creation</NavLink>
       <NavLink  className="acc-link" activeClassName="active"> Rebranding</NavLink>
        <NavLink  className="acc-link" activeClassName="active">Social Media Management</NavLink>

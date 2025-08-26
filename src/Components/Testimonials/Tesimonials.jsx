@@ -1,59 +1,102 @@
-import React from 'react'
-import './Testimonials.css'
-import { Star } from 'lucide-react';
-import { Quote } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useRef, useEffect } from 'react';
-import ImageWithFallback from '../ImageWithFallback/ImageWithFallback.JSX';
-const Tesimonials = () => {
+import React, { useRef, useEffect } from "react";
+import "./Testimonials.css";
+import { Star } from "lucide-react";
+import { Quote } from "lucide-react";
+import ImageWithFallback from "../ImageWithFallback/ImageWithFallback.JSX";
+import gsap from "gsap";
 
+const Testimonials = () => {
+  const cardRef = useRef([]);
 
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "CEO at TechStart",
+      company: "TechStart Inc.",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b1e0?w=150&h=150&fit=crop&crop=face",
+      content:
+        "Working with this agency transformed our online presence. Our Meta ads now generate 4x ROI, and our new Shopify store converts at 8.5%. Absolutely incredible results!",
+      rating: 5,
+      metrics: "400% ROI increase",
+    },
+    {
+      name: "Michael Chen",
+      role: "Founder",
+      company: "EcoGoods",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      content:
+        "The brand rebranding project exceeded all expectations. Sales increased 250% in just 3 months after launch. Their strategic approach to brand positioning is remarkable.",
+      rating: 5,
+      metrics: "250% sales growth",
+    },
+    {
+      name: "Emily Rodriguez",
+      role: "Marketing Director",
+      company: "FashionForward",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      content:
+        "Our Shopify redesign was a game-changer. Page load speeds improved by 60%, and conversion rates doubled. The team's attention to detail is unmatched.",
+      rating: 5,
+      metrics: "100% conversion boost",
+    },
+  ];
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CEO at TechStart",
-    company: "TechStart Inc.",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b1e0?w=150&h=150&fit=crop&crop=face",
-    content:
-      "Working with this agency transformed our online presence. Our Meta ads now generate 4x ROI, and our new Shopify store converts at 8.5%. Absolutely incredible results!",
-    rating: 5,
-    metrics: "400% ROI increase",
-  },
-  {
-    name: "Michael Chen",
-    role: "Founder",
-    company: "EcoGoods",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    content:
-      "The brand rebranding project exceeded all expectations. Sales increased 250% in just 3 months after launch. Their strategic approach to brand positioning is remarkable.",
-    rating: 5,
-    metrics: "250% sales growth",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Marketing Director",
-    company: "FashionForward",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    content:
-      "Our Shopify redesign was a game-changer. Page load speeds improved by 60%, and conversion rates doubled. The team's attention to detail is unmatched.",
-    rating: 5,
-    metrics: "100% conversion boost",
-  },
-];
+  useEffect(() => {
+    // Initial pop-in animation
+    gsap.fromTo(
+      cardRef.current,
+      { y: 50, opacity: 0, scale: 0.8 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+      }
+    );
 
+    // Floating idle animation
+    gsap.to(cardRef.current, {
+      y: "+=10",
+      repeat: -1,
+      yoyo: true,
+      duration: 2,
+      ease: "sine.inOut",
+      stagger: {
+        each: 0.3,
+        repeat: -1,
+      },
+    });
+  }, []);
+
+  // Hover lift effect
+  const handleMouseEnter = (el) => {
+    gsap.to(el, {
+      y: -15,
+      scale: 1.05,
+      boxShadow: "0px 15px 30px rgba(0,0,0,0.2)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = (el) => {
+    gsap.to(el, {
+      y: 0,
+      scale: 1,
+      boxShadow: "0px 5px 15px rgba(0,0,0,0.1)",
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
+  };
 
   return (
-   <>
-
-
-  
-    <section  className="testimonials-section" id="testimonials-section">
+    <section className="testimonials-section" id="testimonials-section">
       <div className="testimonials-container">
-        {/* Section Header */}
         <div className="section-header">
           <div className="header-badge">
             <span>Client Success Stories</span>
@@ -68,10 +111,15 @@ const testimonials = [
           </p>
         </div>
 
-        {/* Testimonials Grid */}
         <div className="testimonials-grid">
           {testimonials.map((t, index) => (
-            <div key={index} className="testimonial-card">
+            <div
+              key={index}
+              ref={(el) => (cardRef.current[index] = el)}
+              className="testimonial-card"
+              onMouseEnter={() => handleMouseEnter(cardRef.current[index])}
+              onMouseLeave={() => handleMouseLeave(cardRef.current[index])}
+            >
               <div className="rating">
                 {[...Array(t.rating)].map((_, i) => (
                   <Star key={i} className="star-icon" />
@@ -103,34 +151,9 @@ const testimonials = [
             </div>
           ))}
         </div>
-
-        {/* Trust Indicators */}
-   {/*       <div className="trust-indicators">
-          <div className="indicator">
-            <div className="indicator-value">50+</div>
-            <div className="indicator-label">Happy Clients</div>
-          </div>
-          <div className="indicator">
-            <div className="indicator-value">4.9/5</div>
-            <div className="indicator-label">Average Rating</div>
-          </div>
-          <div className="indicator">
-            <div className="indicator-value">98%</div>
-            <div className="indicator-label">Client Retention</div>
-          </div>
-          <div className="indicator">
-            <div className="indicator-value">24/7</div>
-            <div className="indicator-label">Support</div>
-          </div>
-        </div>  */}
       </div>
     </section>
-   
+  );
+};
 
-   
-   </>
-    
-  )
-}
-
-export default Tesimonials
+export default Testimonials;
