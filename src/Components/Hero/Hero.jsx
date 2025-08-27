@@ -63,7 +63,7 @@ const Hero = () => {
    <>
    <section className="hero-section">
  
-  <div classNameName="background-elements">
+  <div className="background-elements">
     <div className="bg-circle indigo-circle"></div>
     <div className="bg-circle purple-circle"></div>
   </div>

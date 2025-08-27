@@ -21,10 +21,10 @@ const Navbar = () => {
 <section className='nav-links'  >
 
 
-     <a href='#services-section' className="nav-link   withdropdown     " activeClassName="active">Services </a>
+     <a href='#services-section' className="nav-link   withdropdown   " >Services </a>
     
-    <a  href="#testimonials-section"  className="nav-link" activeClassName="active">Testimonials</a>
-    <a href='#cta-section' className="nav-link" activeClassName="active">Contact</a>
+    <a  href="#testimonials-section"  className="nav-link" >Testimonials</a>
+    <a href='#cta-section' className="nav-link" >Contact</a>
 
 
 </section>
@@ -80,10 +80,10 @@ const Navbar = () => {
    <Accordian id="item-services" title="Services"> 
       <NavLink 
       
-      className="acc-link"     activeClassName="active"> Meta Ads</NavLink>
-     <NavLink  className="acc-link" activeClassName="active">Shopify Store Creation</NavLink>
-      <NavLink  className="acc-link" activeClassName="active"> Rebranding</NavLink>
-       <NavLink  className="acc-link" activeClassName="active">Social Media Management</NavLink>
+      className="acc-link"> Meta Ads</NavLink>
+     <NavLink  className="acc-link" >Shopify Store Creation</NavLink>
+      <NavLink  className="acc-link" > Rebranding</NavLink>
+       <NavLink  className="acc-link">Social Media Management</NavLink>
 </Accordian>
 </span> 
 {/* -------------------------------------------------------------- */}
