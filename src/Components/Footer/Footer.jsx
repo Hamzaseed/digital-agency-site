@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import './Footer.css';
-
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../../firebase";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -40,7 +41,7 @@ const Footer = () => {
     e.preventDefault(); 
 
     try {
-      await addDoc(collection(db, "newsletter_subscriptions"), {    
+      await addDoc(collection(db, "emails"), {    
         ...emails,
         createdAt: Timestamp.now(),
       });

@@ -5,6 +5,8 @@ import { Quote } from "lucide-react";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback.JSX";
 import gsap from "gsap";
 import { assets } from "../../assets/assets";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Testimonials = () => {
   const cardRef = useRef([]);
