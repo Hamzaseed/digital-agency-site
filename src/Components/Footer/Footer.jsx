@@ -41,7 +41,7 @@ const Footer = () => {
 
     try {
       await addDoc(collection(db, "newsletter_subscriptions"), {    
-        ...email,
+        ...emails,
         createdAt: Timestamp.now(),
       });
       
@@ -62,7 +62,14 @@ const Footer = () => {
              <h3>Join Our Newsletter</h3>
             <p>Subscribe to our newsletter for the latest insights</p>
             <form    onSubmit={handleSubmit} className="newsletter-form">
-              <input onChange={handleInputChange} value={emails.email} type="email" placeholder="Your email address" required />
+               <input
+          name="email"
+          type="email"
+          placeholder="Your email address"
+          value={emails.email}
+          onChange={handleInputChange}
+          required
+        />
               <button className="subscribe-btn" type="submit">
                Subscribe
               </button>
