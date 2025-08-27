@@ -28,26 +28,28 @@ const Footer = () => {
 
 
 
-  const [emails  , setEmail] = useState({email : ""});
+const [emails, setEmail] = useState({ email: "" });
+const [success, setSuccess] = useState(false);
 
-  const handleInputChange = (e) => {
-    setEmail({...emails , [e.target.name]: e.target.value});
- 
-  };
+const handleInputChange = (e) => {
+  setEmail({ ...emails, [e.target.name]: e.target.value });
+  setSuccess(false); // Reset success on input change
+};
 
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     try {
-      await addDoc(collection(db, "emails"), {    
+      await addDoc(collection(db, "emails"), {
         ...emails,
         createdAt: Timestamp.now(),
       });
-      
+      setSuccess(true);
+      setEmail({ email: "" }); // Optionally clear the input
     } catch (error) {
-      console.error("Error submitting form: ", error);      
+      console.error("Error submitting form: ", error);
       alert("Error submitting the form, please try again later");
     }
   }
@@ -62,19 +64,22 @@ const Footer = () => {
           <div className="footer-newsletter">
              <h3>Join Our Newsletter</h3>
             <p>Subscribe to our newsletter for the latest insights</p>
-            <form    onSubmit={handleSubmit} className="newsletter-form">
-               <input
-          name="email"
-          type="email"
-          placeholder="Your email address"
-          value={emails.email}
-          onChange={handleInputChange}
-          required
-        />
-              <button className="subscribe-btn" type="submit">
-               Subscribe
-              </button>
-            </form>
+        <form onSubmit={handleSubmit} className="newsletter-form">
+          <input
+            name="email"
+            type="email"
+            placeholder="Your email address"
+            value={emails.email}
+            onChange={handleInputChange}
+            required
+          />
+          <button className="subscribe-btn" type="submit">
+            Subscribe
+          </button>
+          {success && (
+            <p className="success-message">Thank you for subscribing!</p>
+          )}
+        </form>
           </div>
 
           {/* Quick Links */}
