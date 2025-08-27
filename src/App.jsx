@@ -6,7 +6,7 @@ import Services from './Components/Services/Services'
 import Footer from './Components/Footer/Footer'
 import Tesimonials from './Components/Testimonials/Tesimonials'
 import CTA from './Components/CTA/CTA'
-import Main from './Pages/Main'
+
 
 
 
@@ -17,8 +17,15 @@ function App() {
     <>
     <div    className="App">
         <Navbar />
-     
-        <Main/>
+          <main    className="main-content">
+    <Hero/>
+    <Services/>
+
+ <CTA/>
+ <Tesimonials/>
+
+    </main>
+
     
         <Footer />
 
