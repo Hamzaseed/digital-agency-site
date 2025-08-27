@@ -4,6 +4,7 @@ import { Star } from "lucide-react";
 import { Quote } from "lucide-react";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback.JSX";
 import gsap from "gsap";
+import { assets } from "../../assets/assets";
 
 const Testimonials = () => {
   const cardRef = useRef([]);
@@ -13,8 +14,8 @@ const Testimonials = () => {
       name: "Sarah Johnson",
       role: "CEO at TechStart",
       company: "TechStart Inc.",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b1e0?w=150&h=150&fit=crop&crop=face",
+      image: assets.Afnan_9pm_EDP_100ML,
+     
       content:
         "Working with this agency transformed our online presence. Our Meta ads now generate 4x ROI, and our new Shopify store converts at 8.5%. Absolutely incredible results!",
       rating: 5,
