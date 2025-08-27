@@ -28,16 +28,6 @@
   scroll-behavior: smooth;
  
 }
-@font-face {
-  font-family: 'Helvetica Now Text';
-  src: url('/fonts/helvetica-now-text.woff2') format('woff2'),
-       url('/fonts/helvetica-now-text.woff') format('woff'),
-       url('/fonts/helvetica-now-text.ttf') format('truetype');
-  font-weight: 100 900; /* Supports all weights */
-  font-style: normal;
-  font-display: swap;
-}
-
 
 
 h1,h2,h3,h4,h5,h6 {
