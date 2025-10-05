@@ -1,6 +1,7 @@
 {
   "name": "scalix",
-  "homepage": "https://Hamzaseed.github.io/Project-Scalix",
+  "homepage": "https://Hamzaseed.github.io/digital-agency-site"
+,
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +11,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+"deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "gsap": "^3.13.0",

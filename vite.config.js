@@ -4,5 +4,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/digital-agency-site/",
+ base: "/digital-agency-site/"
+
 });
