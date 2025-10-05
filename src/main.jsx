@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
 
-  <BrowserRouter basename='/Project-Scalix'  >
+  <BrowserRouter basename='/digital-agency-site'  >
     <App />
   </BrowserRouter>
 
