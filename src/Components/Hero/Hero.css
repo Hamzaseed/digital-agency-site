@@ -244,7 +244,7 @@ background: linear-gradient(90deg, #1e3c72, #2a5298);
 }
 
 .indigo-floating {
-  background: #4f46e5;
+  background: #4f46e5 ;
   top: -16px;
   left: -16px;
 }

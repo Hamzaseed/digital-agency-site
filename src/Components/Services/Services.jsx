@@ -1,13 +1,18 @@
 import React, { use } from 'react'
 import './Services.css'
-import { Sparkle, Sparkles ,ArrowRight  } from 'lucide-react';
+
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 import ImageWithFallback from '../ImageWithFallback/ImageWithFallback';
 import { useRef , useEffect } from 'react';
-import { text } from '@fortawesome/fontawesome-svg-core';
+
+import { TrendingUp ,Star,Users ,Sparkle, Sparkles ,ArrowRight, Target,Share2 ,ShoppingCart,Palette } from 'lucide-react';
+
+
+
+
 const Services = () => {
 
    const textRef = useRef(null);
@@ -61,7 +66,7 @@ const Services = () => {
   const services = [
     {
       title: "Meta Ads Management",
-      icon: "" ,
+      icon: <Target strokeWidth={1.5} absoluteStrokeWidth width={50} />,
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwdGVhbXxlbnwxfHx8fDE3NTU2MTAyNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description: "Strategic Facebook and Instagram advertising campaigns that drive real results for your business.",
       features: [
@@ -81,7 +86,7 @@ const Services = () => {
     },
     {
       title: "Social Media Marketing",
-      icon: "",
+      icon: <Share2 strokeWidth={1.5} absoluteStrokeWidth width={50} />,
       image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZ3xlbnwxfHx8fDE3NTU2MDQ1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description: "Comprehensive social media strategy and management across all major platforms to build your online presence.",
       features: [
@@ -101,7 +106,7 @@ const Services = () => {
     },
     {
       title: "Shopify Store Creation",
-      icon: "",
+      icon:  <ShoppingCart strokeWidth={1.5} absoluteStrokeWidth width={50} /> ,
       image: "https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaG9waWZ5JTIwZWNvbW1lcmNlfGVufDF8fHx8MTc1NTY3ODY4NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description: "Complete e-commerce solutions built on Shopify to help you sell online effectively and efficiently.",
       features: [
@@ -121,7 +126,7 @@ const Services = () => {
     },
     {
       title: "Brand Rebranding",
-      icon: "" ,
+      icon: <Palette strokeWidth={1.5} absoluteStrokeWidth width={50} /> ,
       image: "https://images.unsplash.com/photo-1716471330463-f475b00f0506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmFuZCUyMGRlc2lnbnxlbnwxfHx8fDE3NTU2Nzg2ODd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       description: "Complete brand transformation including logo design, visual identity, and brand guidelines.",
       features: [
@@ -142,10 +147,10 @@ const Services = () => {
   ];
 
   const stats = [
-    { number: "200+", label: "Successful Campaigns", icon: ""  },
-    { number: "50M+", label: "Ad Impressions", icon: "" },
-    { number: "150+", label: "Happy Clients", icon: "" },
-    { number: "4.9/5", label: "Client Rating", icon: "" }
+    { number: "20+", label: "Successful Campaigns", icon:     <TrendingUp strokeWidth={1.5} absoluteStrokeWidth width={22} />  },
+    { number: "5M+", label: "Ad Impressions", icon: <Target strokeWidth={1.5} absoluteStrokeWidth width={22}  /> },
+    { number: "50+", label: "Happy Clients", icon:     <Users strokeWidth={1.5} absoluteStrokeWidth width={22}/> },
+    { number: "4.9/5", label: "Client Rating", icon:   <Star strokeWidth={1.5} absoluteStrokeWidth width={22} /> }
   ];
 
 
@@ -201,7 +206,10 @@ const Services = () => {
             <div key={index} className="service-card">
               <div className="service-img-wrapper">
                 <ImageWithFallback src={service.image} alt={service.title} className="service-img" />
+                
+                <div className='service-image-wrapper'    >
                 <div className="service-icon">{service.icon}</div>
+                </div>
               </div>
               <h3>{service.title}</h3>
               <p className="service-description">{service.description}</p>
@@ -212,7 +220,7 @@ const Services = () => {
                   <ul>
                     {service.features.map((feature, idx) => (
                       <li key={idx}>
-                       {/*  <CheckCircle className="icon-sm" /> */} {feature}
+                   {feature}
                       </li>
                     ))}
                   </ul>

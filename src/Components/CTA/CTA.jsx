@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../../firebase";
 import "./CTA.css";
+
 export default function CTA() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,24 +22,14 @@ export default function CTA() {
     });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  // No Firebase - dummy success handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  try {
-    await addDoc(collection(db, "contacts"), {
-      ...formData,
-      createdAt: Timestamp.now(),
-    });
-
+    // Simulate a success action
     alert("We will contact you soon!");
-    setFormData({ name: "", email: "", company: "", service: "", message: "" }); // clear form
-  } catch (error) {
-    console.error("Error submitting form: ", error);
-    alert("Error submitting the form, please try again later");
-  }
-};
-  
-   
+    setFormData({ name: "", email: "", company: "", service: "", message: "" });
+  };
 
   useEffect(() => {
     // LEFT
@@ -51,14 +39,13 @@ const handleSubmit = async (e) => {
       {
         opacity: 1,
         x: 0,
-
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: leftRef.current,
-          start: "top 80%", // when top of element hits 80% of viewport
-          toggleActions: "play none none reverse"
-        }
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
       }
     );
 
@@ -75,12 +62,12 @@ const handleSubmit = async (e) => {
         scrollTrigger: {
           trigger: rightRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
+          toggleActions: "play none none reverse",
+        },
       }
     );
 
-    // BENEFITS (staggered)
+    // BENEFITS
     benefitsRef.current.forEach((el, i) => {
       if (el) {
         gsap.fromTo(
@@ -95,13 +82,14 @@ const handleSubmit = async (e) => {
             scrollTrigger: {
               trigger: el,
               start: "top 90%",
-              toggleActions: "play none none reverse"
-            }
+              toggleActions: "play none none reverse",
+            },
           }
         );
       }
     });
   }, []);
+
   return (
     <section id="cta-section" className="cta-section">
       <div className="cta-container">
@@ -113,9 +101,9 @@ const handleSubmit = async (e) => {
               Ready to <span className="highlight">Grow Your Business?</span>
             </h2>
             <p className="cta-text">
-              We help businesses scale through smart digital marketing, brand building, 
-              and cutting-edge web solutions. Book your free consultation today 
-              and let’s create something powerful.
+              We help businesses scale through smart digital marketing, brand
+              building, and cutting-edge web solutions. Book your free
+              consultation today and let’s create something powerful.
             </p>
 
             <div className="cta-benefits">
@@ -150,8 +138,21 @@ const handleSubmit = async (e) => {
               <form onSubmit={handleSubmit} className="cta-form">
                 <div className="form-row">
                   <input
-                    type="text"name="name"   placeholder="Your Name"   value={formData.name}  onChange={handleInputChange} required />
-                  <input  type="email" name="email" placeholder="Email Address"    value={formData.email}       onChange={handleInputChange} required />
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
                 <input
                   type="text"
@@ -168,7 +169,9 @@ const handleSubmit = async (e) => {
                 >
                   <option value="">Select a Service</option>
                   <option value="meta-ads">Meta Ads Management</option>
-                  <option value="shopify-creation">Shopify Store Creation</option>
+                  <option value="shopify-creation">
+                    Shopify Store Creation
+                  </option>
                   <option value="brand-rebranding">Brand Rebranding</option>
                   <option value="shopify-redesign">Shopify Redesign</option>
                   <option value="multiple">Multiple Services</option>
@@ -184,12 +187,13 @@ const handleSubmit = async (e) => {
                   🚀 Get Free Consultation
                 </button>
               </form>
-              <p className="cta-note">⚡ We’ll respond within 24 hours. No spam, guaranteed.</p>
+              <p className="cta-note">
+                ⚡ We’ll respond within 24 hours. No spam, guaranteed.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-
-  }
+}

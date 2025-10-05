@@ -5,8 +5,6 @@ import { Quote } from "lucide-react";
 import ImageWithFallback from "../ImageWithFallback/ImageWithFallback.JSX";
 import gsap from "gsap";
 import { assets } from "../../assets/assets";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../../firebase";
 
 const Testimonials = () => {
   const cardRef = useRef([]);
@@ -45,6 +43,17 @@ const Testimonials = () => {
       rating: 5,
       metrics: "100% conversion boost",
     },
+    {
+      name: "David Kim",
+      role: "COO",
+      company: "FitLife",   
+      image:
+        "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face",
+      content:    
+        "The social media strategy implemented by this agency increased our engagement rates by 300%. Their content creation and ad targeting are top-notch.",
+      rating: 5,
+      metrics: "300% engagement increase",
+    }
   ];
 
   useEffect(() => {

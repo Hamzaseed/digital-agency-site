@@ -1,18 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import './Footer.css';
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "../../firebase";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-
-
 
   const services = [
-    {name: "Meta Ads", path: "/services/meta-ads" },
+    { name: "Meta Ads", path: "/services/meta-ads" },
     { name: "Brand Strategy", path: "/services/brand-strategy" },
     { name: "Shopify Store Creation & Rebranding", path: "/services/shopify-store" },
     { name: "SEO Optimization", path: "/services/seo" },
@@ -23,38 +18,25 @@ const Footer = () => {
     { name: "About Us", path: "/about" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "Careers", path: "/careers" },
-    
   ];
 
+  const [emails, setEmail] = useState({ email: "" });
+  const [success, setSuccess] = useState(false);
 
+  const handleInputChange = (e) => {
+    setEmail({ ...emails, [e.target.name]: e.target.value });
+    setSuccess(false);
+  };
 
-const [emails, setEmail] = useState({ email: "" });
-const [success, setSuccess] = useState(false);
-
-const handleInputChange = (e) => {
-  setEmail({ ...emails, [e.target.name]: e.target.value });
-  setSuccess(false); // Reset success on input change
-};
-
-
-
-  const handleSubmit = async (e) => {
+  // Dummy submit (no Firebase)
+  const handleSubmit = (e) => {
     e.preventDefault();
+    if (!emails.email) return;
 
-    try {
-      await addDoc(collection(db, "emails"), {
-        ...emails,
-        createdAt: Timestamp.now(),
-      });
-      setSuccess(true);
-      setEmail({ email: "" }); // Optionally clear the input
-    } catch (error) {
-      console.error("Error submitting form: ", error);
-      alert("Error submitting the form, please try again later");
-    }
-  }
-
-
+    // Simulate success
+    setSuccess(true);
+    setEmail({ email: "" });
+  };
 
   return (
     <footer className="footer">
@@ -62,24 +44,24 @@ const handleInputChange = (e) => {
         <div className="footer-container">
           {/* Newsletter Section */}
           <div className="footer-newsletter">
-             <h3>Join Our Newsletter</h3>
+            <h3>Join Our Newsletter</h3>
             <p>Subscribe to our newsletter for the latest insights</p>
-        <form onSubmit={handleSubmit} className="newsletter-form">
-          <input
-            name="email"
-            type="email"
-            placeholder="Your email address"
-            value={emails.email}
-            onChange={handleInputChange}
-            required
-          />
-          <button className="subscribe-btn" type="submit">
-            Subscribe
-          </button>
-          {success && (
-            <p className="success-message">Thank you for subscribing!</p>
-          )}
-        </form>
+            <form onSubmit={handleSubmit} className="newsletter-form">
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email address"
+                value={emails.email}
+                onChange={handleInputChange}
+                required
+              />
+              <button className="subscribe-btn" type="submit">
+                Subscribe
+              </button>
+              {success && (
+                <p className="success-message">Thank you for subscribing!</p>
+              )}
+            </form>
           </div>
 
           {/* Quick Links */}
@@ -88,7 +70,7 @@ const handleInputChange = (e) => {
               <h4>Services</h4>
               <ul>
                 {services.map((service, index) => (
-                  <li className='footer-links'      key={index}>
+                  <li className="footer-links" key={index}>
                     <Link to={service.path}>{service.name}</Link>
                   </li>
                 ))}
@@ -99,7 +81,7 @@ const handleInputChange = (e) => {
               <h4>Company</h4>
               <ul>
                 {companyLinks.map((link, index) => (
-                  <li className='footer-links'   key={index}>
+                  <li className="footer-links" key={index}>
                     <Link to={link.path}>{link.name}</Link>
                   </li>
                 ))}
@@ -109,15 +91,15 @@ const handleInputChange = (e) => {
             <div className="footer-col">
               <h4>Contact</h4>
               <ul className="contact-info">
-                <li >
+                <li>
                   <Mail size={16} className="icon" />
                   <span>infoscalix.co</span>
                 </li>
-                <li >
+                <li>
                   <Phone size={16} className="icon" />
                   <span>+92 330 4393 035</span>
                 </li>
-                <li  >
+                <li>
                   <MapPin size={16} className="icon" />
                   <span>Lahore, Pakistan</span>
                 </li>

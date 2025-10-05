@@ -135,7 +135,7 @@
 .author-company {
   font-size: 14px;
   font-weight: 500;
-  color: #4f46e5;
+  color:#374151;
 }
 
 /* Metrics */
@@ -155,28 +155,4 @@
   font-size: 18px;
   font-weight: 700;
   color: #4f46e5;
-}
-
-/* Trust Indicators */
-.trust-indicators {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 24px;
-  background: #fff;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.indicator-value {
-  font-size: 32px;
-  font-weight: 700;
-  color: #4f46e5;
-  margin-bottom: 8px;
-}
-
-.indicator-label {
-  font-size: 14px;
-  color: #6b7280;
 }
